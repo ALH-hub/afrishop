@@ -23,7 +23,7 @@ class DBClient {
         connectTimeoutMS,
       });
       await client.connect();
-      this.db = client.db('atlasdb');
+      this.db = client.db('afrishopdb');
       console.log('Connected to database!!!');
     } catch (error) {
       console.error('Could not connect to database\n', error);
@@ -34,7 +34,60 @@ class DBClient {
     return !!this.db;
   }
 
+  async insertClient(user) {
+    try {
+      return await this.db.collection('afrishopdb').insertOne(user);
+    } catch (error) {
+      console.error('Error inserting client: ', error);
+      throw error;
+    }
+  }
 
+  async findClient(id) {
+    try {
+      return await this.db.collection('afrishopdb').findOne(id);
+    } catch (error) {
+      console.error('Error finding the client', error);
+      throw error;
+    }
+  }
+
+  async insertVendor(user) {
+    try {
+      return await this.db.collection('afrishopdb').insertOne(user);
+    } catch (error) {
+      console.error('Error creating vendor: ', error);
+      throw error;
+    }
+  }
+
+  async findVendor(id) {
+    try {
+      return await this.db.collection('afrishop').findOne(id);
+    } catch (error) {
+      console.error('Error finding the vendor: ', error);
+      throw error;
+    }
+  }
+
+  async insertAdmin(user) {
+    try {
+      return await this.db.collection('afrishopdb').insertOne(user);
+    } catch (error) {
+      console.error('Error creating admin: ', error);
+      throw error;
+    }
+  }
+
+  async findAdmin(id) {
+    try {
+      return await this.db.collection('afrishopdb').findOne(id);
+    } catch (error) {
+      console.error('Error finding the admin: ', error);
+      throw error;
+    }
+  }
+}
 
 const dbClient = new DBClient();
 
