@@ -36,7 +36,7 @@ class DBClient {
 
   async insertClient(user) {
     try {
-      return await this.db.collection('afrishopdb').insertOne(user);
+      return await this.db.collection('clients').insertOne(user);
     } catch (error) {
       console.error('Error inserting client: ', error);
       throw error;
@@ -45,16 +45,27 @@ class DBClient {
 
   async findClient(id) {
     try {
-      return await this.db.collection('afrishopdb').findOne(id);
+      return await this.db.collection('clients').findOne(id);
     } catch (error) {
       console.error('Error finding the client', error);
       throw error;
     }
   }
 
+  async updateClient(client, body) {
+    try {
+      return await this.db.collection('clients').updateOne(client, {
+        $set: body,
+      });
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  }
+
   async insertVendor(user) {
     try {
-      return await this.db.collection('afrishopdb').insertOne(user);
+      return await this.db.collection('vendors').insertOne(user);
     } catch (error) {
       console.error('Error creating vendor: ', error);
       throw error;
@@ -63,7 +74,7 @@ class DBClient {
 
   async findVendor(id) {
     try {
-      return await this.db.collection('afrishop').findOne(id);
+      return await this.db.collection('vendors').findOne(id);
     } catch (error) {
       console.error('Error finding the vendor: ', error);
       throw error;
@@ -72,18 +83,38 @@ class DBClient {
 
   async insertAdmin(user) {
     try {
-      return await this.db.collection('afrishopdb').insertOne(user);
+      return await this.db.collection('admins').insertOne(user);
     } catch (error) {
       console.error('Error creating admin: ', error);
       throw error;
     }
   }
 
+  async findAdmins() {
+    try {
+      return await this.db.collection('admins').find();
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  }
+
   async findAdmin(id) {
     try {
-      return await this.db.collection('afrishopdb').findOne(id);
+      return await this.db.collection('admins').findOne(id);
     } catch (error) {
       console.error('Error finding the admin: ', error);
+      throw error;
+    }
+  }
+
+  async updateAdmin(admin, body) {
+    try {
+      return await this.db.collection('admins').updateOne(admin, {
+        $set: body,
+      });
+    } catch (error) {
+      console.error(error);
       throw error;
     }
   }
