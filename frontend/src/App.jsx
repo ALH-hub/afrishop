@@ -4,7 +4,8 @@ import Home from '../pages/Home';
 import Products from '../pages/Products';
 import Event from '../pages/Event';
 import Login from '../pages/Login';
-import Register from '../pages/Register';
+import RegisterForm from '../pages/register';
+import Registerevent from '../pages/Registerevents';
 
 const Layout = () => {
   return (
@@ -52,7 +53,7 @@ const BrowserRouter = createBrowserRouter([
   },
   {
     path: '/register',
-    element: <Register />,
+    element: <RegisterForm />,
   },
   {
     path: '*',
@@ -64,6 +65,7 @@ const App = () => {
   return (
     <div>
       <RouterProvider router={BrowserRouter} />
+      <Event />
     </div>
   );
 };

@@ -1,0 +1,71 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+  
+  form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    text-align: left;
+    align-content: center;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    width: 100%;
+  
+  }
+  
+  form input, form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    align-content: center;
+  }
+  
+  form button {
+    background-color: #ff8c00;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: #e07b00;
+  }
+  
+  /* Couleurs africaines */
+  body {
+    background-color: #f5e9d2;
+  }
+  
+  form {
+    background-color: #fdd835;
+    color: #2e7d32;
+  }
+  
+  form input, form select {
+    border: 1px solid #2e7d32;
+  }
+  
+  form button {
+    background-color: #d84315;
+  }
+  
+  form button:hover {
+    background-color: #bf360c;
+  }
+  
