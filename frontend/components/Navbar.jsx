@@ -46,7 +46,7 @@ const Navbar = () => {
                 isActive ? 'bg-[#ED8728] text-white p-2 rounded' : 'text-black'
               }
             >
-              Events
+              Contact Us
             </NavLink>{' '}
           </li>
         </ul>

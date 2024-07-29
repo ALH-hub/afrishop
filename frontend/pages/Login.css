@@ -1,0 +1,33 @@
+/* src/login.css */
+.login-container {
+  @apply flex items-center justify-center min-h-screen bg-gradient-to-r from-yellow-100 via-green-100 to-red-100;
+}
+
+.login-box {
+  @apply w-full max-w-md bg-white p-8 rounded-lg shadow-lg border border-gray-300;
+  @apply transition-transform transform hover:scale-105;
+}
+
+.login-title {
+  @apply text-3xl font-extrabold mb-6 text-red-600;
+}
+
+.login-input {
+  @apply mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-200 ease-in-out;
+}
+
+.login-input:focus {
+  @apply border-green-500 ring-1 ring-green-500;
+}
+
+.login-button {
+  @apply w-full py-3 px-4 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-200 ease-in-out;
+}
+
+.login-error {
+  @apply mb-4 text-red-500 text-sm;
+}
+
+.login-footer {
+  @apply mt-6 text-center text-gray-600 text-sm;
+}

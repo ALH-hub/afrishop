@@ -1,0 +1,39 @@
+.cont {
+  /* {flex flex-col justify-center text-blue} */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fbe8c9;
+  padding: 2rem;
+}
+
+.child-cont {
+  /* {flex flex-col md:flex-row justify-between items-center max-w-4xl w-full mx-auto} */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  gap: 2;
+}
+
+.term-links,
+.b-links {
+  margin-top: 1rem;
+}
+
+.images img {
+  width: 20px;
+}
+
+.images {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+  margin-top: 1rem;
+}
+
+.img-cont {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,74 @@
+/* src/product.css */
+.product-grid-container {
+  @apply flex flex-col items-center min-h-screen bg-gray-100 px-12 pt-24;
+}
+
+.sort-container {
+  @apply mb-6;
+}
+
+.sort-select {
+  @apply px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.product-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-7xl;
+}
+
+.product-card {
+  @apply bg-white p-4 rounded-lg shadow-lg border border-gray-200 cursor-pointer;
+  @apply transition-transform transform hover:scale-105;
+}
+
+.product-image {
+  @apply w-full h-48 object-cover rounded-md mb-4;
+}
+
+.product-details {
+  @apply text-center;
+}
+
+.product-title {
+  @apply text-xl font-semibold mb-2 text-gray-800;
+}
+
+.product-category {
+  @apply text-gray-600 mb-2;
+}
+
+.product-price {
+  @apply text-lg font-semibold mb-4 text-green-600;
+}
+
+.product-modal {
+  @apply fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50;
+}
+
+.product-modal-content {
+  @apply bg-white p-6 rounded-lg shadow-lg max-w-lg w-full relative;
+}
+
+.product-modal-close {
+  @apply absolute top-2 right-2 text-gray-600 text-2xl cursor-pointer;
+}
+
+.product-modal-image {
+  @apply w-full h-64 object-cover rounded-md mb-4;
+}
+
+.product-modal-title {
+  @apply text-2xl font-bold mb-2 text-gray-800;
+}
+
+.product-modal-category,
+.product-modal-price {
+  @apply text-gray-600 mb-4;
+}
+
+.product-modal-button {
+  @apply w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 ease-in-out;
+}
+
+.category-nav {
+  @apply flex justify-center gap-6 p-4;
+}

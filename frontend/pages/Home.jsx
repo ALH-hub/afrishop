@@ -1,7 +1,7 @@
 import background from '/background.jpg';
 import artisan from '/artisan.jpeg';
 import { NavLink } from 'react-router-dom';
-import PageFooter from './PageFooter';
+import PageFooter from '../components/PageFooter';
 
 const Home = () => {
   const products = [
