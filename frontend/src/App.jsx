@@ -5,6 +5,7 @@ import Products from '../pages/Products';
 import Event from '../pages/Event';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
+import Contact from '../pages/Contact';
 
 const Layout = () => {
   return (
@@ -53,6 +54,16 @@ const BrowserRouter = createBrowserRouter([
   {
     path: '/register',
     element: <Register />,
+  },
+  {
+    path: '/contact',
+    element: <Layout />,
+    children: [
+      {
+        path: '/contact',
+        element: <Contact />,
+      },
+    ],
   },
   {
     path: '*',

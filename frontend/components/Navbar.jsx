@@ -1,23 +1,62 @@
 import logo from '/logo.jpeg';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <nav className='border border-1 '>
-      <img className='w-8' src={logo} alt='' />
-      <div>
-        <ul>
-          <li>
-            <Link to='/'>Home</Link>
+    <nav className='top-0 left-0 right-0 flex justify-between items-center py-2 px-12 bg-[#FBCF67] '>
+      <Link to='/'>
+        <img className='w-16 rounded-xl' src={logo} alt='' />
+      </Link>
+      <div className='flex gap-14'>
+        <ul className='flex gap-8 text-base'>
+          <li className='p-2 rounded hover:bg-[#ED8728] hover:text-white'>
+            <NavLink
+              to='/'
+              className={({ isActive }) =>
+                isActive ? 'bg-[#ED8728] text-white p-2 rounded' : 'text-black'
+              }
+            >
+              Home
+            </NavLink>
           </li>
-          <li>
-            <Link to='/products'>Products</Link>
+          <li className='hover:bg-[#ED8728] hover:text-white p-2 rounded'>
+            <NavLink
+              to='/products'
+              className={({ isActive }) =>
+                isActive ? 'bg-[#ED8728] text-white p-2 rounded' : 'text-black'
+              }
+            >
+              Products
+            </NavLink>
           </li>
-          <li>
-            <Link to='/event'>Event</Link>
+          <li className='hover:bg-[#ED8728] hover:text-white p-2 rounded'>
+            <NavLink
+              to='/event'
+              className={({ isActive }) =>
+                isActive ? 'bg-[#ED8728] text-white p-2 rounded' : 'text-black'
+              }
+            >
+              Events
+            </NavLink>{' '}
+          </li>
+          <li className='hover:bg-[#ED8728] hover:text-white p-2 rounded'>
+            <NavLink
+              to='/contact'
+              className={({ isActive }) =>
+                isActive ? 'bg-[#ED8728] text-white p-2 rounded' : 'text-black'
+              }
+            >
+              Events
+            </NavLink>{' '}
           </li>
         </ul>
       </div>
+      <Link
+        className='hover:bg-[#ED8728] hover:text-white p-2 rounded text-base'
+        to='/register'
+      >
+        Register
+      </Link>
     </nav>
   );
 };
