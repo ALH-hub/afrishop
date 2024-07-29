@@ -1,9 +1,22 @@
 import background from '/background.jpg';
 import artisan from '/artisan.jpeg';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import PageFooter from './PageFooter';
 
 const Home = () => {
   const products = [
+    {
+      name: 'Product Name',
+      category: 'Product category',
+      price: 'Price',
+      image: `${artisan}`,
+    },
+    {
+      name: 'Product Name',
+      category: 'Product category',
+      price: 'Price',
+      image: `${artisan}`,
+    },
     {
       name: 'Product Name',
       category: 'Product category',
@@ -50,16 +63,16 @@ const Home = () => {
           </h1>
           <p className='text-xl'>
             Cameroonian craftsmanship is a treasure trove that deserves
-            protection and celebration. By supporting our artisans, we're
+            protection and celebration. By supporting our artisans, we&apos;re
             preserving a one-of-a-kind cultural heritage and fostering
             sustainable economic growth. Visuals featuring a gallery of
             handcrafted items.
           </p>
         </div>
       </div>
-      <div className='px-12 py-4'>
+      <div className='px-12 py-4 flex flex-col gap-4 mb-8'>
         <h1 className='font-extrabold text-3xl'>Sample Products</h1>
-        <div className='flex '>
+        <div className='flex flex-wrap justify-evenly '>
           {products.map((product, index) => (
             <div key={index} className='flex flex-row gap-4 p-4'>
               <img
@@ -76,8 +89,18 @@ const Home = () => {
             </div>
           ))}
         </div>
-        <Link>Get More</Link>
+        <NavLink
+          to='/products'
+          className={({ isActive }) =>
+            isActive
+              ? 'bg-[#ED8728] text-white p-2 rounded'
+              : 'text-black hover:bg-[#ED8728] hover:text-white p-2 rounded text-center font-bold text-xl'
+          }
+        >
+          Get More
+        </NavLink>
       </div>
+      <PageFooter />
     </div>
   );
 };
