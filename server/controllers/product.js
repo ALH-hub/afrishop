@@ -5,9 +5,9 @@ import { ObjectId } from 'mongodb';
 // create a new product
 export const createProduct = async (req, res) => {
   try {
-    const { name, description, price, category, stock } = req.body;
+    const { name, description, price, category, stock, vendorId } = req.body;
 
-    if (!name || !description || !price || !category || !stock) {
+    if (!name || !description || !price || !category || !stock || !vendorId) {
       return res.status(400).json({
         message: 'Name, description, price, category, and stock are required',
       });
@@ -19,6 +19,7 @@ export const createProduct = async (req, res) => {
       price,
       category,
       stock,
+      vendorId,
       createdAt: new Date(),
     };
 
@@ -105,6 +106,17 @@ export const deleteProduct = async (req, res) => {
     return res.status(200).json({ message: 'Product deleted successfully' });
   } catch (error) {
     console.log(error);
+    return res.status(500).json({ status: 500, message: 'Server error' });
+  }
+};
+
+// get products by vendor id
+export const getProductsByVendorId = async (req, res) => {
+  try {
+    const vendorId = ObjectId(req.params.id);
+    const products = await dbClient.findProducts({ vendorId });
+    return res.status(200).json(products);
+  } catch (error) {
     return res.status(500).json({ status: 500, message: 'Server error' });
   }
 };

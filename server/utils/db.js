@@ -287,9 +287,11 @@ class DBClient {
     }
   }
 
-  async findProducts() {
+  async findProducts(id) {
     try {
-      return await this.db.collection('products').find();
+      id
+        ? await this.db.collection('products').find({ vendorId: id }).toArray()
+        : await this.db.collection('products').find();
     } catch (error) {
       console.error(error);
       throw error;

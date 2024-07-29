@@ -17,6 +17,10 @@ app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
+app.get('/', (req, res) => {
+  res.json({ message: 'Welcome to artishop API service' });
+});
+
 app.use('/api/auth', authRouter);
 app.use('/api/client', clientRouter);
 app.use('/api/admin', adminRouter);
@@ -27,8 +31,8 @@ app.use('/api/product', productRouter);
 app.use('/api/review', reviewRouter);
 app.use('/api/payment', paymentRouter);
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+app.listen(3030, () => {
+  console.log('Server is running on port 3030');
 });
 
 export default app;
