@@ -5,4 +5,4 @@ const router = express.Router();
 
 router.get('/', authController);
 
-export default router;
+module.exports = router;
