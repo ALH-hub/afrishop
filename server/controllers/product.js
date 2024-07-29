@@ -1,11 +1,6 @@
-import dbClient from '../utils/db';
-import bcrypt from 'bcryptjs';
+import dbClient from '../utils/db.js';
 import dotenv from 'dotenv';
 import { ObjectId } from 'mongodb';
-
-dotenv.config();
-
-const sct = process.env.SECRETE;
 
 // create a new product
 export const createProduct = async (req, res) => {

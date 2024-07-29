@@ -1,11 +1,5 @@
-import dbClient from '../utils/db';
-import bcrypt from 'bcryptjs';
-import dotenv from 'dotenv';
+import dbClient from '../utils/db.js';
 import { ObjectId } from 'mongodb';
-
-dotenv.config();
-
-const sct = process.env.SECRETE;
 
 // Create a new review
 export const createReview = async (req, res) => {

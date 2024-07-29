@@ -1,11 +1,5 @@
-import dbClient from '../utils/db';
-import bcrypt from 'bcryptjs';
-import dotenv from 'dotenv';
+import dbClient from '../utils/db.js';
 import { ObjectId } from 'mongodb';
-
-dotenv.config();
-
-const sct = process.env.SECRETE;
 
 // create a new vendor
 export const createVendor = async (req, res) => {

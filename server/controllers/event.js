@@ -1,11 +1,5 @@
-import dbClient from '../utils/db';
-import bcrypt from 'bcryptjs';
-import dotenv from 'dotenv';
+import dbClient from '../utils/db.js';
 import { ObjectId } from 'mongodb';
-
-dotenv.config();
-
-const sct = process.env.SECRETE;
 
 // create a new event
 export const createEvent = async (req, res) => {
@@ -56,7 +50,7 @@ export const getEvent = async (req, res) => {
 };
 
 // get all events
-export const getEventss = async (req, res) => {
+export const getEvents = async (req, res) => {
   try {
     const clients = await dbClient.findEventss();
     return res.status(200).json(clients);

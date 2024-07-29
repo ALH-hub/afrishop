@@ -1,4 +1,4 @@
-import dbClient from '../utils/db';
+import dbClient from '../utils/db.js';
 import { ObjectId } from 'mongodb';
 
 // create a new order

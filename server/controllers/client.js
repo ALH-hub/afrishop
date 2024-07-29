@@ -1,4 +1,4 @@
-import dbClient from '../utils/db';
+import dbClient from '../utils/db.js';
 import bcrypt from 'bcryptjs';
 import dotenv from 'dotenv';
 import { ObjectId } from 'mongodb';
@@ -55,5 +55,17 @@ export const updateClient = async (req, res) => {
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: 'Server Error!!!' });
+  }
+};
+
+// delete client
+export const deleteClient = async (req, res) => {
+  try {
+    const id = req.params.id;
+    await dbClient.deleteClient({ id });
+    return res.status(200).json({ message: 'Client deleted successfully' });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ status: 500, message: 'Server error' });
   }
 };
