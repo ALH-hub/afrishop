@@ -1,0 +1,38 @@
+/* EventsPage.css */
+
+.events-page {
+  padding: 7rem;
+  background-color: #f7fafc;
+}
+
+.events-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 16px;
+}
+
+.event-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.event-card:hover {
+  transform: scale(1.02);
+}
+
+.event-title {
+  margin-bottom: 8px;
+}
+
+.event-date,
+.event-time {
+  font-size: 0.875rem;
+}
+
+.event-description {
+  margin-top: 8px;
+  color: #4a5568;
+}

@@ -1,73 +1,124 @@
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-// eslint-disable-next-line no-unused-vars
-import React from 'react';
-import './Login.css'; // Importer le fichier CSS
+import axios from 'axios';
+import time from '/time.jpeg';
+import back from '/back.jpeg';
+
+const baseRoute = 'http://localhost:5000';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const navigate = useNavigate();
+  const [user, setUser] = useState({
+    email: '',
+    password: '',
+    role: 'client',
+  });
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser({ ...user, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email || !password) {
-      setError('Tous les champs sont requis.');
-      return;
+    try {
+      if (user.password === '' || user.email === '') {
+        // do not submit form
+        return;
+      }
+
+      const loginPayload = {
+        email: user.email,
+        password: user.password,
+        role: user.role,
+      };
+
+      const response = await axios.post(
+        `${baseRoute}/auth/login`,
+        loginPayload,
+      );
+      localStorage.setItem('token', response.data.token);
+
+      navigate('/dashboard');
+    } catch (error) {
+      console.error(error);
     }
-    setError('');
-    // Logique de soumission ici
-    console.log('Email:', email);
-    console.log('Password:', password);
+  };
+
+  const handleCancel = () => {
+    navigate('/');
   };
 
   return (
-    <div className='login-container'>
-      <div className='login-box'>
-        <h1 className='login-title'>Connexion</h1>
-        {error && <p className='login-error'>{error}</p>}
-        <form onSubmit={handleSubmit}>
-          <div className='mb-6'>
-            <label
-              htmlFor='email'
-              className='block text-sm font-medium text-gray-700'
-            >
-              Email
-            </label>
+    <div
+      className='p-20 flex bg-cover h-screen justify-center opacity-100 gap-10 items-center'
+      style={{ backgroundImage: `url(${back})` }}
+    >
+      <div className='bg-white flex flex-row p-6'>
+        <img className='rounded-xl' src={time} width='455rem' alt='' />
+        <form
+          className='flex flex-col gap-4 rounded-xl w-fit bg-white no-scrollbar overflow-none p-7 items-center '
+          onSubmit={handleSubmit}
+        >
+          <h1 className='text-xl font-bold mb-2'>Login</h1>
+          <div className='flex justify-center gap-10 items-center w-full'>
             <input
+              className='border border-gray-400 p-4 h-10 rounded focus:outline-none'
               type='email'
+              name='email'
+              placeholder='Email'
               id='email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className='login-input'
+              onChange={handleChange}
               required
             />
           </div>
-          <div className='mb-6'>
-            <label
-              htmlFor='password'
-              className='block text-sm font-medium text-gray-700'
-            >
-              Mot de passe
-            </label>
+          <div className='flex justify-center gap-10 items-center w-full'>
             <input
+              className='border border-gray-400 p-4 h-10 rounded focus:outline-none'
               type='password'
+              name='password'
+              placeholder='Password'
               id='password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className='login-input'
+              onChange={handleChange}
               required
             />
           </div>
-          <button type='submit' className='login-button'>
-            Se connecter
-          </button>
-          <div className='login-footer'>
-            <p>
-              Vous n avez pas de compte ?{' '}
-              <a href='/register' className='text-blue-600 hover:underline'>
-                Inscrivez-vous
-              </a>
-            </p>
+
+          <div className='w-full flex justify-center items-center gap-4 '>
+            <label htmlFor='role'>Role:</label>
+            <select
+              className='bg-white focus:outline-none border border-gray-200 rounded text-sm p-1'
+              name='role'
+              id='role'
+              value={user.role}
+              onChange={handleChange}
+              required
+            >
+              <option value='client'>Client</option>
+              <option value='vendor'>Vendor</option>
+            </select>
+          </div>
+
+          <div className='flex flex-col justify-center gap-6 mt-4 w-full'>
+            <button
+              className='border border-gray-300  text-center text-sm p-2 rounded bg-[#f6ca97] hover:bg-white hover:text-[#ed8728]'
+              type='submit'
+            >
+              Login
+            </button>
+            <button
+              type='button'
+              onClick={handleCancel}
+              className='border border-gray-300  text-center text-sm p-2 rounded bg-[#f6ca97] hover:bg-white hover:text-[#ed8728]'
+            >
+              Cancel
+            </button>
+          </div>
+          <div className='flex gap-2'>
+            <span>Don&apos;t have an account?</span>
+            <Link className='text-[#ed8728]' to='/register'>
+              Register
+            </Link>
           </div>
         </form>
       </div>
