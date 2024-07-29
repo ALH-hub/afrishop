@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './stylerig.css';
+import axios from 'axios';
 
 const RegisterEvent = () => {
   const [formData, setFormData] = useState({
@@ -20,9 +21,9 @@ const RegisterEvent = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
+    const response = await axios.post('https://localhost:3030/', formData);
     console.log(formData);
   };
 
