@@ -1,0 +1,99 @@
+/* OrdersPage.css */
+
+.orders-page {
+  padding: 24px;
+  background-color: #f7fafc;
+}
+
+.orders-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.order-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-customer-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.order-status {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.order-status.pending {
+  background-color: #f59e0b;
+}
+
+.order-status.shipped {
+  background-color: #38a169;
+}
+
+.order-items {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 12px;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+
+.item-name {
+  font-weight: bold;
+}
+
+.item-quantity, .item-price {
+  color: #4a5568;
+}
+
+.order-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.action-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.shipped-button {
+  background-color: #38a169;
+  color: #ffffff;
+}
+
+.cancel-button {
+  background-color: #e53e3e;
+  color: #ffffff;
+}
+
+.shipped-button:hover {
+  background-color: #2f855a;
+}
+
+.cancel-button:hover {
+  background-color: #c53030;
+}

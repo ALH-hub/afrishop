@@ -6,6 +6,9 @@ import Event from '../pages/Event';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Contact from '../pages/Contact';
+import VendorHome from '../pages/VendorHome';
+import OrdersPage from '../pages/OrdersPage';
+import SellerPage from '../pages/SellerPage';
 
 const Layout = () => {
   return (
@@ -24,6 +27,38 @@ const BrowserRouter = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+      },
+    ],
+  },
+
+  {
+    path: '/orderpage',
+    element: <Layout />,
+    children: [
+      {
+        path: '/orderpage',
+        element: <OrdersPage />,
+      },
+    ],
+  },
+
+  {
+    path: '/dashboard',
+    element: <Layout />,
+    children: [
+      {
+        path: '/dashboard',
+        element: <VendorHome />,
+      },
+    ],
+  },
+  {
+    path: '/SellerPage',
+    element: <Layout />,
+    children: [
+      {
+        path: '/SellerPage',
+        element: <SellerPage />,
       },
     ],
   },
@@ -62,6 +97,20 @@ const BrowserRouter = createBrowserRouter([
       {
         path: '/contact',
         element: <Contact />,
+      },
+    ],
+  },
+  {
+    path: '/profile',
+    element: <div>Profile</div>,
+  },
+  {
+    path: '/vendor',
+    element: <Layout />,
+    children: [
+      {
+        path: '/vendor',
+        element: <VendorHome />,
       },
     ],
   },

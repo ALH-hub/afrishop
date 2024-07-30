@@ -3,8 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import time from '/time.jpeg';
 import back from '/back.jpeg';
-
-const baseRoute = 'http://localhost:5000';
+import baseRoute from '../config.js';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -38,8 +37,9 @@ const Login = () => {
         loginPayload,
       );
       localStorage.setItem('token', response.data.token);
+      localStorage.setItem('role', response.data.role);
 
-      navigate('/dashboard');
+      navigate('/');
     } catch (error) {
       console.error(error);
     }

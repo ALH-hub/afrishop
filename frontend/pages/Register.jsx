@@ -3,8 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import time from '/time.jpeg';
 import back from '/back.jpeg';
-
-const baseRoute = 'http://localhost:5000';
+import BaseUrl from '../config.js';
 
 const CreateUser = () => {
   const navigate = useNavigate();
@@ -34,6 +33,7 @@ const CreateUser = () => {
         username: user.username,
         email: user.email,
         password: user.password,
+        role: user.role,
         createdAt: new Date().toISOString(),
         ...(user.role === 'vendor' && {
           description: user.description,
@@ -41,13 +41,13 @@ const CreateUser = () => {
         }),
       };
 
-      await axios.post(`${baseRoute}/users/`, userPayload, {
+      await axios.post(`${BaseUrl}/client/`, userPayload, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       });
 
-      navigate('/admin');
+      navigate('/login');
     } catch (error) {
       console.error(error);
     }
@@ -148,6 +148,7 @@ const CreateUser = () => {
             <button
               className='border border-gray-300  text-center text-sm p-2 rounded bg-[#f6ca97] hover:bg-white hover:text-[#ed8728]'
               type='submit'
+              onClick={handleSubmit}
             >
               Create
             </button>
